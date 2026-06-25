@@ -1,0 +1,35 @@
+def check_well_formatted(input_item, list_label):
+    # Condition (a)
+    if not isinstance(input_item, list):
+        return False
+
+    # Condition (b)
+    if len(input_item) < 2:
+        return False
+
+    # Condition (c)
+    if input_item[0] not in list_label:
+        return False
+
+    # Condition (d)
+    for item in input_item[1:]:
+        if isinstance(item, str):
+            continue
+        elif isinstance(item, list):
+            if not check_well_formatted(item, list_label):
+                return False
+        else:
+            return False
+
+    return True
+
+
+input_list1 = ['VP', ['V', 'eat']]
+list_label1 = ['VP', 'V']
+
+result = check_well_formatted(input_list1, list_label1)
+
+if result:
+    print("Well formatted")
+else:
+    print("Not Well formatted")

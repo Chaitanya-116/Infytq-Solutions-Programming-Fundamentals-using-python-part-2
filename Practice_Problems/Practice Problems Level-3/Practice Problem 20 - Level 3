@@ -1,0 +1,25 @@
+#lex_auth_0127136216235950081185
+
+def ducci_sequence(test_list, n):
+    #start writing your code here
+
+    final_list = []
+
+    while True:
+        temp = []
+
+        for i in range(len(test_list)):
+            temp.append(abs(test_list[i] - test_list[(i + 1) % len(test_list)]))
+
+        final_list.append(temp)
+
+        if temp == [0, 0, 0, 0]:
+            break
+
+        test_list = temp
+
+    return final_list[n]
+
+
+ducci_element = ducci_sequence([0, 653, 1854, 4063], 3)
+print(ducci_element)

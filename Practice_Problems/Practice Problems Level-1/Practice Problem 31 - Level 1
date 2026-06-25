@@ -1,0 +1,23 @@
+#lex_auth_0127136332814499841204
+def sum_of_elements(num_list, number):
+    blocked = set()
+
+    for i in range(len(num_list)):
+        if num_list[i] == number:
+            blocked.add(i)
+            if i > 0:
+                blocked.add(i - 1)
+            if i < len(num_list) - 1:
+                blocked.add(i + 1)
+
+    result_sum = 0
+    for i in range(len(num_list)):
+        if i not in blocked:
+            result_sum += num_list[i]
+
+    return result_sum
+
+
+num_list = [1,7,3,4,1,7,10,5]
+number = 7
+print(sum_of_elements(num_list, number))

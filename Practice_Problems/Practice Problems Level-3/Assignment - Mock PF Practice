@@ -1,0 +1,27 @@
+def list_rotate(uniquecode_list):
+    rotated_list = []
+
+    for code in uniquecode_list:
+        first, second = code.split("-")
+
+        alphabets = ""
+        for ch in first:
+            if ch.isalpha():
+                alphabets += ch
+            else:
+                break
+
+        if len(alphabets) == 2:
+            second = second[-2:] + second[:-2]   # rotate twice
+        else:
+            second = second[1:] + second[0]       # rotate once
+
+        rotated_list.append(alphabets + second)
+
+    return rotated_list
+
+
+#You may modify the below code for testing
+uniquecode_list = ["AZ01-1234", "R137-8714"]
+rotated_list = list_rotate(uniquecode_list)
+print(rotated_list)

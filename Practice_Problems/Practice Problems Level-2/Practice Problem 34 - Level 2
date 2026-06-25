@@ -1,3 +1,4 @@
+#lex_auth_0127136426924195841210
 def check_well_formatted(input_item, list_label):
     # Condition (a)
     if not isinstance(input_item, list):
